@@ -1,6 +1,8 @@
+
 {
   "version": 2,
   "cleanUrls": true,
+  "framework": null,
   "rewrites": [
     {
       "source": "/(.*)",
@@ -8,6 +10,15 @@
     }
   ],
   "headers": [
+    {
+      "source": "/(.*).tsx",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
