@@ -3,15 +3,41 @@
   "version": 2,
   "public": true,
   "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/(.*)\\.(tsx|ts)", "destination": "/$1.$2" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(assets|components|pages|lib|constants|types)/(.*)",
+      "destination": "/$1/$2"
+    },
+    {
+      "source": "/index.tsx",
+      "destination": "/index.tsx"
+    },
+    {
+      "source": "/App.tsx",
+      "destination": "/App.tsx"
+    },
+    {
+      "source": "/translations.ts",
+      "destination": "/translations.ts"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
       "source": "/(.*).(tsx|ts)",
       "headers": [
-        { "key": "Content-Type", "value": "application/javascript" }
+        {
+          "key": "Content-Type",
+          "value": "application/javascript; charset=utf-8"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
       ]
     }
   ]
