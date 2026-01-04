@@ -3,7 +3,16 @@
   "version": 2,
   "public": true,
   "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
+    {
+      "source": "/index.tsx",
+      "destination": "/index.tsx"
+    },
+    {
+      "source": "/(.*).tsx",
+      "destination": "/$1.tsx"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
@@ -11,7 +20,7 @@
   ],
   "headers": [
     {
-      "source": "/(.*).tsx",
+      "source": "/(.*).(tsx|ts)",
       "headers": [
         {
           "key": "Content-Type",
@@ -19,7 +28,7 @@
         },
         {
           "key": "Cache-Control",
-          "value": "no-cache"
+          "value": "no-cache, no-store, must-revalidate"
         }
       ]
     },
@@ -27,8 +36,8 @@
       "source": "/(.*)",
       "headers": [
         {
-          "key": "Cache-Control",
-          "value": "no-store, no-cache, must-revalidate, proxy-revalidate"
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
         }
       ]
     }
