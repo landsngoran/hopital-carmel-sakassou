@@ -1,8 +1,8 @@
 
 {
   "version": 2,
+  "public": true,
   "cleanUrls": true,
-  "framework": null,
   "rewrites": [
     {
       "source": "/(.*)",
@@ -15,7 +15,11 @@
       "headers": [
         {
           "key": "Content-Type",
-          "value": "application/javascript"
+          "value": "application/javascript; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
         }
       ]
     },
@@ -24,7 +28,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
+          "value": "no-store, no-cache, must-revalidate, proxy-revalidate"
         }
       ]
     }
